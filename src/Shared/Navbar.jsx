@@ -27,7 +27,7 @@ const Navbar = () => {
               <Link to="/contact">Contact</Link>
             </li>
             <li className="py-2 px-6 capitalize font-semibold text-[14px] text-[#F8F8FF] hover:text-[#E9B20C] duration-300 ease-in-out cursor-pointer">
-              Dashboard
+              <Link to="/bar-dashboard">Dashboard</Link>
             </li>
           </ul>
           <div className="flex gap-x-2">
