@@ -1,25 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const Productslice = createSlice({
-  name: 'product',
+export const Produtcslice = createSlice({
+  name: 'cart',
   initialState: {
-    cartitem:localStorage.getItem("cart") ?JSON.parse(localStorage.getItem("cart")) : [],
+    baritem: localStorage.getItem("cartProduct") ? JSON.parse(localStorage.getItem("cartProduct")) : []
   },
   reducers: {
-    Addtocart: (state,action) => {
-      let findproduct = state.cartitem.findIndex((item)=>item.id == action.payload.id)
-      if(findproduct !== -1){
-        state.cartitem[findproduct].quantity += 1
-        localStorage.setItem("cart",JSON.stringify(state.cartitem))
-      }else{
-        state.cartitem=[...state.cartitem,action.payload]
-        localStorage.setItem("cart",JSON.stringify(state.cartitem))
-      }
-    },
+    barcartitem : (state, action) => {
+      const newItemIndex = state.baritem.findIndex((item) => item.id == action.payload.id);
 
-  },
+      if (newItemIndex != -1) {
+        state.baritem.push(action.payload)
+        localStorage.setItem("cartProduct", JSON.stringify(state.baritem))
+      } 
+      // else {
+      //   state.baritem[newItemIndex].qty += 1
+      //   localStorage.setItem("cartProduct", JSON.stringify(state.baritem))
+      // }
+    }
+  }
 })
 
-export const {Addtocart} = Productslice.actions
+export const { barcartitem } = Produtcslice.actions
 
-export default Productslice.reducer
+export default Produtcslice.reducer

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../../Shared/Container";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -11,9 +11,20 @@ import { CalenderIcon } from "@/assets/icons/icons";
 import { ClockIcon } from "lucide-react";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { format } from "date-fns";
+import { barcartitem } from "../Slice/Productslice";
+import { useDispatch } from "react-redux";
 
 const FeaturedDrinks = () => {
   const [selectedDrink, setSelectedDrink] = useState(null);
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(barcartitem("done"))
+  },[])
+
+  const handlecart = (item) => {
+    dispatch(barcartitem({...item, qty: 1}))
+  }
 
   const [formData, setFormData] = useState({
     productName: "",
@@ -138,7 +149,7 @@ const FeaturedDrinks = () => {
                 </p>
               </div>
               <button
-                onClick={() => setSelectedDrink(item)}
+                onClick={()=>handlecart(item)}
                 className="flex justify-center items-center leading-none py-[16px] px-[32px] capitalize font-semibold text-[18px] rounded-lg bg-[linear-gradient(92deg,_#DBA514_2.3%,_#EEB609_35.25%,_#C69320_66.76%,_#FCC201_97.79%)] backdrop-blur-[6.5px] text-[#0E0E0E] cursor-pointer tracking-[0.72px] w-full"
               >
                 Buy now
