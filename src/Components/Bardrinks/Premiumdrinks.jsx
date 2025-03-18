@@ -6,13 +6,10 @@ import { Button } from "../ui/button";
 import { CalenderIcon } from "@/assets/icons/icons";
 import { ClockIcon } from "lucide-react";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
-import { format } from "date-fns";
-import { useSelector } from "react-redux";
+import { format } from "date-fns"
 
 const Premiumdrinks = () => {
   const [selectedDrink, setSelectedDrink] = useState(null);
-  const data = useSelector((state)=>state.baritem)
-  console.log(data);
   
 
   const [formData, setFormData] = useState({

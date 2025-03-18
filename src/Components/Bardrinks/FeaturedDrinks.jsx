@@ -11,20 +11,12 @@ import { CalenderIcon } from "@/assets/icons/icons";
 import { ClockIcon } from "lucide-react";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { format } from "date-fns";
-import { barcartitem } from "../Slice/Productslice";
-import { useDispatch } from "react-redux";
 
 const FeaturedDrinks = () => {
   const [selectedDrink, setSelectedDrink] = useState(null);
-  const dispatch = useDispatch()
+  
 
-  useEffect(()=>{
-    dispatch(barcartitem("done"))
-  },[])
 
-  const handlecart = (item) => {
-    dispatch(barcartitem({...item, qty: 1}))
-  }
 
   const [formData, setFormData] = useState({
     productName: "",
