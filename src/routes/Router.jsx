@@ -15,7 +15,7 @@ import BarChats from "@/pages/private/bar/BarChats";
 import ProfileDetails from "@/pages/private/bar/ProfileDetails";
 import BarStatistics from "@/pages/private/bar/BarStatistics";
 import Signup from "@/pages/Signup/Signup";
-import Login from "@/pages/Login/Login";
+import Login from "@/pages/Auth/Login/Login";
 
 export const router = createBrowserRouter([
   {
